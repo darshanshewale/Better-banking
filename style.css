@@ -1,0 +1,674 @@
+/* The page is NOT responsive. You can implement responsiveness yourself if you wanna have some fun 😃 */
+
+:root {
+  --color-primary: #5ec576;
+  --color-secondary: #ffcb03;
+  --color-tertiary: #ff585f;
+  --color-primary-darker: #4bbb7d;
+  --color-secondary-darker: #ffbb00;
+  --color-tertiary-darker: #fd424b;
+  --color-primary-opacity: #5ec5763a;
+  --color-secondary-opacity: #ffcd0331;
+  --color-tertiary-opacity: #ff58602d;
+  --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+  --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+  background-color: #f3f3f3;
+}
+/* applies to learn more  */
+.btn_text {
+  display: inline-block;
+  background: none;
+  font-size: 1.7rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--color-primary);
+  border: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.header {
+  /* created padding from left to right for good structure */
+  padding: 0 3rem;
+  height: 100vh;
+  display: flex;
+  /* placed item is column  */
+  flex-direction: column;
+  align-items: center;
+}
+
+.header_title {
+  flex: 1;
+  max-width: 115rem;
+  display: grid;
+  /* makes 5 container first column  has 3 second has 2  */
+  grid-template-columns: 3fr 2fr;
+  row-gap: 3rem;
+
+  align-content: center;
+  justify-content: center;
+
+  /* item aligned from start of container */
+  align-items: start;
+  justify-items: start;
+}
+
+h1 {
+  font-size: 5.5rem;
+  line-height: 1.35;
+}
+
+h4 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  /* space between image and unordered list  */
+  justify-content: space-between;
+  align-items: center;
+  height: 9rem;
+  width: 100%;
+  padding: 0 6rem;
+  z-index: 100;
+}
+
+/* nav and stickly class at the same time */
+/* makes navigation bar fixed with background white color */
+.nav.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.nav_logo {
+  height: 4.5rem;
+  transition: all 0.3s;
+}
+
+.nav_links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+/* creates list with having gap as well organized */
+.nav_item {
+  margin-left: 4rem;
+}
+
+/* applies to the links of sections on nav bar */
+.nav_link:link,
+.nav_link:visited {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+}
+
+/* applies to the open account */
+.nav_link_btn:link,
+.nav_link_btn:visited {
+  padding: 0.8rem 2.5rem;
+  border-radius: 3rem;
+  background-color: var(--color-primary);
+  color: #222;
+}
+
+.nav_link_btn:hover,
+.nav_link_btn:active {
+  color: inherit;
+  background-color: var(--color-primary);
+}
+
+.header_img {
+  width: 100%;
+  /* from second column  */
+  grid-column: 2 / 3;
+  /* from 1 row till 3rd row */
+  grid-row: 1 / span 4;
+  /* uplift the image on Y axis  */
+  transform: translateY(-6rem);
+}
+
+/* applies to modal  */
+.highlight {
+  position: relative;
+}
+
+/* create cool effect to highlighted text */
+.highlight::after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  transform: scale(1.07, 1.05) skewX(-15deg);
+  background-image: var(--gradient-primary);
+}
+
+.section {
+  padding: 15rem 3rem;
+  /* create border above each section for separation */
+  border-top: 1px solid #ddd;
+
+  transition: transform 1s, opacity 1s;
+}
+
+/* applies to each section title  */
+.section_title {
+  max-width: 80rem;
+  /* margin left is set here using shorthand property */
+  margin: 0 auto 8rem auto;
+}
+
+/* section description styling */
+.section_description {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section_header {
+  font-size: 4rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* this will help for smoothing effect while scrolling  */
+.section_hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.features {
+  display: grid;
+  /* divided the features  section in two column  */
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 0 12rem;
+}
+
+.features_img {
+  width: 100%;
+}
+
+/* this will applies to nbaking features container */
+.features_feature {
+  align-self: center;
+  justify-self: center;
+  width: 70%;
+  font-size: 1.5rem;
+}
+
+/* applies to icons  */
+.features_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5.5rem;
+  width: 5.5rem;
+  background-color: var(--color-primary-opacity);
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+/* applies to icon text */
+.features_icon svg {
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: var(--color-primary);
+}
+
+.features_header {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* helping for lazy loading function */
+.lazy_img {
+  filter: blur(20px);
+}
+
+/* operations container */
+.operations {
+  max-width: 100rem;
+  margin: 12rem auto 0 auto;
+
+  background-color: #fff;
+}
+
+/* applies to the opeartion tab button  */
+.operations_tab_container {
+  display: flex;
+  justify-content: center;
+}
+
+/* applies to the opeartion tab button  */
+.btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 1.25rem 4.5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-darker);
+}
+
+.operations_tab {
+  margin-right: 2.5rem;
+  /* lift the tabs to 50% of y axis  */
+  transform: translateY(-50%);
+}
+
+/* the applies to the count of tab */
+.operations_tab span {
+  margin-right: 1rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* below set the color for button as well as on hover */
+.operations_tab_1 {
+  background-color: var(--color-secondary);
+}
+
+.operations_tab_1:hover {
+  background-color: var(--color-secondary-darker);
+}
+
+.operations_tab_3 {
+  background-color: var(--color-tertiary);
+}
+
+.operations_tab_3:hover {
+  background-color: var(--color-tertiary-darker);
+}
+
+.operations_tab_active:hover {
+  transform: translateY(-66%);
+}
+
+.operations_content {
+  /* this will help to display the only repective tab content  */
+  display: none;
+  font-size: 1.7rem;
+  padding: 2.5rem 7rem 6.5rem 7rem;
+}
+
+/* this will make the content active */
+.operations_content_active {
+  display: grid;
+  /* 7rem for Icon and 1 fr the other text */
+  grid-template-columns: 7rem 1fr;
+  column-gap: 3rem;
+  row-gap: 0.5rem;
+}
+
+.operations_header {
+  font-size: 2.25rem;
+  font-weight: 500;
+  align-self: center;
+}
+
+/* this applies to icon container  */
+.operations_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+}
+
+/* this applies to the icon text  */
+.operations_icon svg {
+  height: 2.75rem;
+  width: 2.75rem;
+}
+
+/* applies to the content text for all operations */
+.operations_content p {
+  grid-column: 2;
+}
+
+/* below are the color applies to the icons  */
+.operations_icon_1 {
+  background-color: var(--color-secondary-opacity);
+}
+
+.operations_icon_2 {
+  background-color: var(--color-primary-opacity);
+}
+
+.operations_icon_3 {
+  background-color: var(--color-tertiary-opacity);
+}
+
+/* applies to icon text svg */
+.operations_icon_1 svg {
+  fill: var(--color-secondary-darker);
+}
+
+.operations_icon_2 svg {
+  fill: var(--color-primary-darker);
+}
+
+.operations_icon_3 svg {
+  fill: var(--color-tertiary-opacity);
+}
+
+/* slider content for testimonial */
+.testimonial {
+  width: 65%;
+  position: relative;
+}
+
+/* text header of testimonial content */
+.testimonial_header {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+/* text of testimonial text content  */
+.testimonial_text {
+  font-size: 1.7rem;
+  margin-bottom: 3.5rem;
+  color: #666;
+}
+
+.testimonial_author {
+  margin-left: 3rem;
+  font-style: normal;
+  display: grid;
+
+  /* divide photo and text  */
+  grid-template-columns: 6.5rem 1fr;
+  column-gap: 2rem;
+}
+
+.testimonial_photo {
+  grid-row: 1 / 3;
+  width: 6.5rem;
+  border-radius: 50%;
+}
+
+.testimonial_name {
+  font-size: 1.7rem;
+  font-weight: 500;
+  align-self: end;
+}
+.testimonial_location {
+  font-size: 1.5rem;
+}
+
+.section_title_testimonial {
+  margin-bottom: 4rem;
+}
+
+.slider {
+  max-width: 100rem;
+  height: 50rem;
+  margin: 0 auto;
+  position: relative;
+
+  /* IN THE END */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
+
+.slide > img {
+  /* Only for images that have different size than slide */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider_btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  color: #333;
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+}
+
+.slider_btn_left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider_btn_right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots_dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  /* Only necessary when overlying images */
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots_dot:last-child {
+  margin: 0;
+}
+
+.dots_dot_active {
+  /* background-color: #fff; */
+  background-color: #888;
+  opacity: 1;
+}
+
+/* applies to open account section */
+.section_sign_up {
+  background-color: #37383d;
+  border-top: none;
+  border-bottom: 1px solid #444;
+  text-align: center;
+  padding: 10rem 3rem;
+}
+
+.section_sign_up .section_header {
+  color: #fff;
+  text-align: center;
+}
+
+.section_sign_up .section_title {
+  margin-bottom: 6rem;
+}
+
+.section_sign_up .btn {
+  font-size: 1.9rem;
+  padding: 2rem 5rem;
+}
+
+/* footer */
+
+footer {
+  padding: 10rem 3rem;
+  background-color: #37383d;
+}
+
+.footer_nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.footer_item {
+  margin-right: 4rem;
+}
+
+.footer_link {
+  color: #eee;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.footer_logo {
+  height: 5rem;
+  display: block;
+  margin: auto;
+}
+
+/* modal */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60rem;
+  background-color: #f3f3f3;
+  padding: 5rem 6rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.modal_header {
+  font-size: 3.25rem;
+  margin-bottom: 4.5rem;
+  line-height: 1.5;
+}
+
+.modal_form {
+  margin: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+label {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.modal_form input {
+  font-size: 1.7rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+.modal_form button {
+  grid-column: 1 / span 2;
+  justify-self: center;
+  margin-top: 1rem;
+}
+
+.btn_close_modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* help to implement modal  */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.cookie_message {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 120%;
+  color: #bbb;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
