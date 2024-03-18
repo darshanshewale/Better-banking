@@ -3,7 +3,7 @@
 ## Overview
 This project aims to create a  website for a fictional bank. The website provides information about the bank's services, features, and testimonials from satisfied customers.
 
-# URL:https:[//bank-ease.netlify.app/](https://betterbanking.netlify.app/)   
+# URL:https:https://betterbanking.netlify.app/  
 
 ## Features 🚀🚀
 1. **Homepage** 📃: Introduce the bank, display a welcoming message, and highlight key services.
