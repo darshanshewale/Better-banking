@@ -14,7 +14,7 @@ This project aims to create a  website for a fictional bank. The website provide
 - **Technology Stack**:📝
     - HTML: Used for structuring the web pages.
     - CSS: Applied for styling and layout.
-    - JavaScript (optional): Enhance interactivity.
+    - JavaScript : Enhance interactivity.
 
 ## Installation 🖥️
 
