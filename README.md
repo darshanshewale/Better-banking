@@ -10,8 +10,8 @@ This project aims to create a  website for a fictional bank. The website provide
 2. **Services** 💱: Describe the various banking services offered, such as  Instant Transfers,Instant loans, and Instant Closing.
 4. **Testimonials** ✅: Showcase positive feedback from customers who have benefited from the bank's services.
 
-## Operational Details
-- **Technology Stack**:📝
+## Operational Details📱
+- **Technology Stack**
     - HTML: Used for structuring the web pages.
     - CSS: Applied for styling and layout.
     - JavaScript : Enhance interactivity.
